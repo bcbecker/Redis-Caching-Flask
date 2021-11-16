@@ -12,8 +12,8 @@ cache = Cache(app)
 def get_universities():
     API_URL = "http://universities.hipolabs.com/search?country="
     query_param = request.args.get('country')
-    res = requests.get(f'{API_URL}{query_param}')
-    return jsonify(res.json())
+    res = requests.get(f'{API_URL}{query_param}').json()
+    return jsonify(res)
 
 
 
