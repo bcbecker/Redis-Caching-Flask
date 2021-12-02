@@ -37,7 +37,12 @@ sudo docker ps
 
 You can start/stop containers using the following:
 ```bash
-docker container <start/stop> <container-name>
+sudo docker container <start/stop> <container-name>
+```
+
+Or, stop and remove running containers with:
+```bash
+sudo docker-compose down
 ```
 
 
@@ -45,3 +50,5 @@ docker container <start/stop> <container-name>
 Using Postman or cURL, send a GET request to the universities endpoint on localhost port 5000 (http://127.0.0.1:5000/universities?country=<COUNTRY>) with your desired country parameter.
 
 You will get back a JSON response in around 200-300ms. Submit the request again, and you'll see the lightning fast cached response. In most cases, sub 10ms!
+
+Since we are caching by query string, if you change the country parameter, submit a request, then switch back to your original parameter within the 30 second expiration time, it'll still be in the cache, giving you that super fast response.
